@@ -1,6 +1,12 @@
 
 
+build-package:
+	@rm -rf dist/*
+	@python -m venv venv && source venv/bin/activate 
+	@python -m build 
+	@twine check dist/*
+
 distribute:
-	@python -m venv venv && source venv/bin/activate && pip install --upgrade pip build twine && python -m build && python -m twine upload dist/*
+	@python -m twine upload dist/*
 
 
