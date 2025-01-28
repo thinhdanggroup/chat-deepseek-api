@@ -169,3 +169,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+login.json
+override_headers.json
+examples/deepseek_api
