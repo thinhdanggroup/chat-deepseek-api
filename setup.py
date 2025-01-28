@@ -8,8 +8,8 @@ def read_requirements():
 
 
 setup(
-    name='deepseek_chat_api',
-    version='0.1.0',
+    name='chat_deepseek_api',
+    version='0.1.1',
     packages=find_packages(),
     install_requires=read_requirements(),
     description='An unofficial Python API wrapper for chat.deepseek.com',

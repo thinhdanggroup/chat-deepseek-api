@@ -3,9 +3,9 @@ import aiohttp
 import aiofiles
 import json
 from abc import ABC, abstractmethod
-from deepseek_api.constants import API_URL, DeepseekConstants
-from deepseek_api.errors import EmptyEmailOrPasswordError, NotLoggedInError
-from deepseek_api.model import MessageData
+from chat_deepseek_api.constants import API_URL, DeepseekConstants
+from chat_deepseek_api.errors import EmptyEmailOrPasswordError, NotLoggedInError
+from chat_deepseek_api.model import MessageData
 
 
 class DeepSeekBase(ABC):

@@ -1,9 +1,9 @@
 import asyncio
 import os
-from deepseek_api import DeepseekAPI
+from chat_deepseek_api import DeepseekAPI
 from dotenv import load_dotenv
 
-from deepseek_api.model import MessageData
+from chat_deepseek_api.model import MessageData
 
 load_dotenv()
 

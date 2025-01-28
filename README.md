@@ -95,7 +95,8 @@ if __name__ == "__main__":
 Output:
 
 ```bash
-➜  deepseek-chat-api git:(main) ✗ python examples/simple_app.py
+➜  chat-deepseek-api
+ git:(main) ✗ python examples/simple_app.py
 Starting chat session with id: 84ad4e3c-2cfc-45b1-9b84-61dcccd500af
 Greetings! I'm DeepSeek-V3, an artificial intelligence assistant created by DeepSeek. I'm at your service and would be delighted to assist you with any inquiries or tasks you may have.
 As an AI assistant, I can help answer questions, provide information, and have great conversations with you. Feel free to chat with me about any topic you'd like!
