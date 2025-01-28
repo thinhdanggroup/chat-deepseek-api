@@ -7,7 +7,7 @@ This repository is inpired by [deepseek-api](https://github.com/rabilrbl/deepsee
 ## Installation
 
 ```bash
-pip install git+https://github.com/thinhdanggroup/chat-deepseek-api
+pip install chat-deepseek-api
 ```
 
 ## Usage
