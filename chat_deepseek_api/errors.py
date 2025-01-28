@@ -9,3 +9,9 @@ class EmptyEmailOrPasswordError(Exception):
     def __init__(self, message="Email or password cannot be empty"):
         self.message = message
         super().__init__(self.message)
+        
+class MissingHeaderConfigError(Exception):
+    """Exception raised when the custom_headers is missing."""
+    def __init__(self, message="custom_headers is missing. Please provide custom_headers"):
+        self.message = message
+        super().__init__(self.message)

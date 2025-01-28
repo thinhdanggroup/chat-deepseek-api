@@ -3,8 +3,12 @@ import aiohttp
 import aiofiles
 import json
 from abc import ABC, abstractmethod
-from chat_deepseek_api.constants import API_URL, DeepseekConstants
-from chat_deepseek_api.errors import EmptyEmailOrPasswordError, NotLoggedInError
+from chat_deepseek_api.constants import API_URL, DeepseekConstants, DeepseekHeaderKey
+from chat_deepseek_api.errors import (
+    EmptyEmailOrPasswordError,
+    MissingHeaderConfigError,
+    NotLoggedInError,
+)
 from chat_deepseek_api.model import MessageData
 
 
@@ -35,14 +39,25 @@ class DeepSeekBase(ABC):
         """
         self.email = email
         self.password = password
+
+        if not email or not password:
+            raise EmptyEmailOrPasswordError
+
         self.save_login = save_login
+
+        if (
+            not custom_headers
+            or custom_headers.get(DeepseekHeaderKey.COOKIE) is None
+            or custom_headers.get(DeepseekHeaderKey.X_DS_POW_RESPONSE) is None
+        ):
+            raise MissingHeaderConfigError
 
         self.headers = DeepseekConstants.BASE_HEADERS.copy()
         self.headers.update(custom_headers)
-        
+
         self.completion_headers = DeepseekConstants.BASE_COMPLETE_HEADERS.copy()
         self.completion_headers.update(custom_headers)
-        
+
         self.credentials = {}
         self._thread_timer = None  # Initialized in the _schedule_update_token method
         self.session = None

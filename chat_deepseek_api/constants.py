@@ -1,3 +1,6 @@
+from enum import StrEnum
+
+
 class API_URL:
     """Deepseek API URL constants"""
 
@@ -55,3 +58,8 @@ class DeepseekConstants:
         "x-client-version": "1.0.0-always",
         "x-ds-pow-response": "",
     }
+
+
+class DeepseekHeaderKey(StrEnum):
+    COOKIE = "cookie"
+    X_DS_POW_RESPONSE = "x-ds-pow-response"

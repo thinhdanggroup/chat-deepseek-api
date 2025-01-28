@@ -1,6 +1,7 @@
 import asyncio
 import os
 from chat_deepseek_api import DeepseekAPI
+from chat_deepseek_api.constants import DeepseekHeaderKey
 from dotenv import load_dotenv
 
 from chat_deepseek_api.model import MessageData
@@ -21,8 +22,8 @@ async def main():
         save_login=True,
         device_id=device_id,
         custom_headers={
-            "cookie": cookies,
-            "x-ds-pow-response": ds_pow_response,
+            DeepseekHeaderKey.COOKIE: cookies,
+            DeepseekHeaderKey.X_DS_POW_RESPONSE: ds_pow_response,
         },
     )
     chat_session_id = await app.new_chat()
@@ -43,7 +44,7 @@ async def main():
             message_id = cur_message_id
 
     print()
-    
+
     async for chunk in app.chat(
         message="what can you do", id=chat_session_id, parent_message_id=message_id
     ):
